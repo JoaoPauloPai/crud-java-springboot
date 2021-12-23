@@ -4,9 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ * @author João Paulo
  *
- * Spring Boot application starter class
+ *         21 de dez. de 2021 22:42:57
  */
+
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
