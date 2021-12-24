@@ -35,15 +35,15 @@ public class GreetingsController {
 	@Autowired
 	private PessoaRepository pessoaRepository;
 
-	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
-	@ResponseStatus(HttpStatus.OK)
-	public String greetingText(@PathVariable String name) {
+	//@RequestMapping(value = "/{nome}", method = RequestMethod.GET)
+	//@ResponseStatus(HttpStatus.OK)
+	public String greetingText(@PathVariable String nome) {
 
-		return "Curso Java " + name + "!";
+		return "Curso Java " + nome + "!";
 	}
 
-	@RequestMapping(value = "/meuNome/{nome}", method = RequestMethod.GET)
-	@ResponseStatus(HttpStatus.OK)
+	//@RequestMapping(value = "/meuNome/{nome}", method = RequestMethod.GET)
+	//@ResponseStatus(HttpStatus.OK)
 	public String retornaMeuNome(@PathVariable String nome) {
 
 		Usuario usuario = new Usuario();
@@ -62,6 +62,16 @@ public class GreetingsController {
 		List<Usuario> usuarios = usuarioRepository.findAll();
 
 		return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.OK);
+
+	}
+	
+	@GetMapping(value = "listaPessoa")
+	@ResponseBody
+	public ResponseEntity<List<Pessoa>> listaPessoa() {
+
+		List<Pessoa> pessoas = pessoaRepository.findAll();
+
+		return new ResponseEntity<List<Pessoa>>(pessoas, HttpStatus.OK);
 
 	}
 	
