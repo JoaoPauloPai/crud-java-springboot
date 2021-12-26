@@ -31,9 +31,8 @@ public class PessoaController {
 
 	@Autowired
 	private PessoaRepository pessoaRepository;
-	
 
-	/**Lista todas as Pessoas da Tabela no BD**/
+	/** Lista todas as Pessoas da Tabela no BD **/
 	@GetMapping(value = "listaPessoa")
 	@ResponseBody
 	public ResponseEntity<List<Pessoa>> listaPessoa() {
@@ -44,8 +43,8 @@ public class PessoaController {
 
 	}
 
-	/**Salva todos os dados na Tabela Pessoa do BD**/
-	@PostMapping(value = "salvarPessoa")
+	/** Salva todos os dados na Tabela Pessoa do BD **/
+	@PostMapping(value = "salvaPessoa")
 	@ResponseBody
 	public ResponseEntity<Pessoa> salvarPessoa(@RequestBody Pessoa pessoa) {
 
@@ -55,7 +54,7 @@ public class PessoaController {
 
 	}
 
-	/**Atualiza todos os dados na Tabela Pessoa do BD**/
+	/** Atualiza todos os dados na Tabela Pessoa do BD **/
 	@PutMapping(value = "atualizaPessoa")
 	@ResponseBody
 	public ResponseEntity<Pessoa> atualizar(@RequestBody Pessoa pessoa) {
@@ -65,27 +64,51 @@ public class PessoaController {
 		return new ResponseEntity<Pessoa>(pess, HttpStatus.OK);
 
 	}
+
+	/** Deleta todos os dados de uma pessoa na Tabela Pessoa do BD **/
+	@DeleteMapping(value = "deletePessoa")
+	@ResponseBody // *Descrição da resposta
+	public ResponseEntity<String> delete(@RequestParam long idPess) {
+
+		pessoaRepository.deleteById(idPess);
+
+		return new ResponseEntity<String>("Cadastro Pessoa deletado com sucesso!", HttpStatus.OK);
+	}
+
+	/** Busca todos os dados de uma pessoa na Tabela Pessoa do BD **/
+	@GetMapping(value = "buscaPessId") // *mapeia a URL
+	@ResponseBody // *Descrição da resposta
+	public ResponseEntity<Pessoa> buscapessid(@RequestParam(name = "idPess") long idPess) {
+
+		Pessoa pess = pessoaRepository.findById(idPess).get();
+
+		return new ResponseEntity<Pessoa>(pess, HttpStatus.OK);
+	}
 	
-	/**Deleta todos os dados de uma pessoa na Tabela Pessoa do BD**/
-	   @DeleteMapping(value = "deletePessoa")
-	   @ResponseBody//*Descrição da resposta
-	   public ResponseEntity<String> delete(@RequestParam long idPess){
+	/** Busca os dados de uma pessoa na Tabela Pessoa do BD **/
+	
+	   @GetMapping(value = "buscaPessoaPorNome")
+	   @ResponseBody 
+	   public ResponseEntity<List<Pessoa>>buscaPessoaPorNome(@RequestParam(name = "nome")String  nome ) {
 	   	
-	   	 pessoaRepository.deleteById(idPess);
+	   	
+	   	 List<Pessoa> pess = pessoaRepository.buscaPessoaPorNome(nome.trim().toUpperCase());
 	   	 
-	   	 return new ResponseEntity<String>("Cadastro Pessoa deletado com sucesso!", HttpStatus.OK);
+	   	 return new  ResponseEntity<List <Pessoa> > (pess, HttpStatus.OK );
 	   }
 	   
-		/**Busca todos os dados de uma pessoa na Tabela Pessoa do BD**/
-	   @GetMapping(value = "buscaPessId")//*mapeia a URL
-	   @ResponseBody//*Descrição da resposta
-	   public ResponseEntity<Pessoa> buscapessid(@RequestParam(name = "idPess") long idPess){//*Recebe os dados para consultar
-	   	
-	   Pessoa pess = pessoaRepository.findById(idPess).get();
-	   	 
-	
-	   	 
-	   	 return new ResponseEntity<Pessoa>(pess, HttpStatus.OK);
-	   }
+		
+		/** Busca os dados de uma pessoa na Tabela Pessoa do BD **/
+		
+		   @GetMapping(value = "buscaPessoaPorSexo")
+		   @ResponseBody 
+		   public ResponseEntity<List<Pessoa>>buscaPessoaPorSexo(@RequestParam(name = "sexo")String  sexo) {
+		   	
+		   	
+		   	 List<Pessoa> pess = pessoaRepository.buscaPessoaPorSexo(sexo.trim().toUpperCase());
+		   	 
+		   	 return new  ResponseEntity<List <Pessoa> > (pess, HttpStatus.OK );
+		   }
+
 
 }

@@ -7,3 +7,21 @@ Pessoa
 Usuario
 Profissao
 
+Métodos Classe
+
+*UsuarioController
+
+listaUsuario
+salvarUsuario
+atualizaUsuario
+deleteUsuario
+buscaUsuarioPorLogin
+
+*PessoaController
+listaPessoa
+SalvaPessoa
+atualizaPessoa
+deletePessoa
+buscaPessId
+buscaPessoaPorNome
+buscaPessoaPorSexo"

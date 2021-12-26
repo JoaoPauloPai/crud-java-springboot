@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.crud.jumbo.crud_java_sprinboot.model.Pessoa;
 import br.com.crud.jumbo.crud_java_sprinboot.model.Usuario;
+import br.com.crud.jumbo.crud_java_sprinboot.repository.PessoaRepository;
 import br.com.crud.jumbo.crud_java_sprinboot.repository.UsuarioRepository;
 
 /**
@@ -92,26 +93,23 @@ public class UsuarioController {
 		return new ResponseEntity<Usuario>(user, HttpStatus.OK);
 
 	}
-	
-	   @DeleteMapping(value = "deleteUsuario")
-	   @ResponseBody//*Descrição da resposta
-	   public ResponseEntity<String> delete(@RequestParam long idUser){
-	   	
-	   	 usuarioRepository.deleteById(idUser);
-	   	 
-	   	 return new ResponseEntity<String>("Usuário deletado com sucesso!", HttpStatus.OK);
-	   }
 
-	
-	   @GetMapping(value = "buscaUserId")
-	   @ResponseBody
-	   public ResponseEntity<Usuario> buscapessid(@RequestParam(name = "idUser") long idUser){
-	   	
-	   Usuario user = usuarioRepository.findById(idUser).get();
-	   	 
-	
-	   	 
-	   	 return new ResponseEntity<Usuario>(user, HttpStatus.OK);
-	   }
+	@DeleteMapping(value = "deleteUsuario")
+	@ResponseBody // *Descrição da resposta
+	public ResponseEntity<String> delete(@RequestParam long idUser) {
+
+		usuarioRepository.deleteById(idUser);
+
+		return new ResponseEntity<String>("Usuário deletado com sucesso!", HttpStatus.OK);
+	}
+
+	@GetMapping(value = "buscaUsuarioPorLogin")
+	@ResponseBody
+	public ResponseEntity<List<Usuario>> buscaUsuarioPorLogin(@RequestParam(name = "login") String login) {
+
+		List<Usuario> user = usuarioRepository.buscaUsuarioPorLogin(login.trim().toUpperCase());
+
+		return new ResponseEntity<List<Usuario>>(user, HttpStatus.OK);
+	}
 
 }
