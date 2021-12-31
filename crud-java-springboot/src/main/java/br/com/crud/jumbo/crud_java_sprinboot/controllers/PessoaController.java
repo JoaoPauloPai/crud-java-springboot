@@ -66,6 +66,7 @@ public class PessoaController {
 	}
 
 	/** Deleta todos os dados de uma pessoa na Tabela Pessoa do BD **/
+	
 	@DeleteMapping(value = "deletePessoa")
 	@ResponseBody // *Descrição da resposta
 	public ResponseEntity<String> delete(@RequestParam long idPess) {
@@ -109,6 +110,5 @@ public class PessoaController {
 		   	 
 		   	 return new  ResponseEntity<List <Pessoa> > (pess, HttpStatus.OK );
 		   }
-
 
 }

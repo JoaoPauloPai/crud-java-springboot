@@ -1,6 +1,3 @@
-/**
- * 
- */
 package br.com.crud.jumbo.crud_java_sprinboot.repository;
 
 import java.util.List;
