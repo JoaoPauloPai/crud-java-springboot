@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.crud.jumbo.crud_java_sprinboot.model.Pessoa;
 import br.com.crud.jumbo.crud_java_sprinboot.model.Usuario;
-import br.com.crud.jumbo.crud_java_sprinboot.repository.PessoaRepository;
+import br.com.crud.jumbo.crud_java_sprinboot.repository.PessoaFisicaRepository;
 import br.com.crud.jumbo.crud_java_sprinboot.repository.UsuarioRepository;
 
 /**
@@ -31,29 +31,9 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	/**
-	 * 
-	 * // @RequestMapping(value = "/{nome}", method = RequestMethod.GET)
-	 * // @ResponseStatus(HttpStatus.OK) public String greetingText(@PathVariable
-	 * String nome) {
-	 * 
-	 * return "Curso Java " + nome + "!"; }
-	 * 
-	 * // @RequestMapping(value = "/meuNome/{nome}", method = RequestMethod.GET)
-	 * // @ResponseStatus(HttpStatus.OK) public String retornaMeuNome(@PathVariable
-	 * String nome) {
-	 * 
-	 * Usuario usuario = new Usuario(); usuario.setLogin(nome);
-	 * 
-	 * usuarioRepository.save(usuario);
-	 * 
-	 * return "seu nome = " + nome;
-	 * 
-	 * }
-	 */
 
 	/**
-	 * Listar Dados da Tabelas
+	 * Lista todo os Dados da Tabela Usuario no BD
 	 **/
 
 	@GetMapping(value = "listaUsuario")
