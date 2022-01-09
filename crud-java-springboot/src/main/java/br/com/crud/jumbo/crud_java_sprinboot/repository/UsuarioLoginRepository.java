@@ -3,8 +3,8 @@
  */
 package br.com.crud.jumbo.crud_java_sprinboot.repository;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import br.com.crud.jumbo.crud_java_sprinboot.model.Usuario;
 
@@ -12,30 +12,31 @@ import br.com.crud.jumbo.crud_java_sprinboot.model.Usuario;
  * @author João Paulo
  *
  * 9 de jan. de 2022
- * 16:12:04
+ * 17:33:26
  */
-public class UsuarioLoginRepository {
+public interface UsuarioLoginRepository extends JpaRepository<Usuario, Long>  {
 	
 	
-	public boolean validarAutenticacao(Usuario usuario) throws Exception {
 		
-	String sql = "select * from usuario where upper(login) = upper(?) and upper(senha) = upper(?) ";
+	//	@Query(value = "select * from usuario where upper(login) = upper(?) and upper(senha) = upper(?) ")
+			
 		
-		usuario.getLogin();
-		usuario.getSenha();
-		
-	//	statement.setString(1, modelLogin.getLogin());
-	//	statement.setString(2, modelLogin.getSenha());
-		
-	//	ResultSet resultSet = statement.executeQuery();
-		
-		//if (resultSet.next()) {
-		//	return true;/*autenticado*/
-	//	}
-		
-		
-		return false;
+			 
+	
+			
+		//statement.setString(1, usuario.getLogin());
+		//	statement.setString(2, modelLogin.getSenha());
+			
+		//	ResultSet resultSet = statement.executeQuery();
+			
+			//if (resultSet.next()) {
+			//	return true;/*autenticado*/
+		//	}
+			
+			
+		//	return usuario;
 
-		
-	}
+			
+		//}
+
 }

@@ -6,7 +6,6 @@ package br.com.crud.jumbo.crud_java_sprinboot.servlets;
 import java.io.IOException;
 
 import br.com.crud.jumbo.crud_java_sprinboot.repository.UsuarioLoginRepository;
-import br.com.crud.jumbo.crud_java_sprinboot.repository.UsuarioRepository;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -27,7 +26,8 @@ public class ServletLogin extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private UsuarioLoginRepository usuarioLoginRepository = new UsuarioLoginRepository();
+	//private UsuarioLoginRepository usuarioLoginRepository = new UsuarioLoginRepository();
+	
 	
 	   public ServletLogin() {
 		   
