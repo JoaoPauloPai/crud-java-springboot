@@ -11,21 +11,31 @@ import javax.persistence.Table;
 /**
  * @author João Paulo
  *
- * 8 de jan. de 2022
- * 16:12:46
+ *         8 de jan. de 2022 16:12:46
  */
 @Entity
 @Table(name = "pessoa_juridica")
 @PrimaryKeyJoinColumn(name = "id")
-public class PessoaJuridica extends Pessoa{
+public class PessoaJuridica extends Pessoa {
 
 	private static final long serialVersionUID = 1L;
-	
+
+	@Column(nullable = false)
+	private String razaoSocial;
+
 	@Column(nullable = false)
 	private String cnpj;
-	
+
 	@Column(nullable = false)
 	private String inscEstadual;
+
+	public String getRazaoSocial() {
+		return razaoSocial;
+	}
+
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
+	}
 
 	public String getCnpj() {
 		return cnpj;
@@ -42,7 +52,5 @@ public class PessoaJuridica extends Pessoa{
 	public void setInscEstadual(String inscEstadual) {
 		this.inscEstadual = inscEstadual;
 	}
-	
-	
 
 }
