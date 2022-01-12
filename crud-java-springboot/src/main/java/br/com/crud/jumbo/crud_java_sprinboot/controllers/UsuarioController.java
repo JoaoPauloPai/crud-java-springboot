@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.crud.jumbo.crud_java_sprinboot.model.Pessoa;
+import br.com.crud.jumbo.crud_java_sprinboot.model.PessoaFisica;
 import br.com.crud.jumbo.crud_java_sprinboot.model.Usuario;
 import br.com.crud.jumbo.crud_java_sprinboot.repository.PessoaFisicaRepository;
 import br.com.crud.jumbo.crud_java_sprinboot.repository.UsuarioRepository;
@@ -90,6 +91,17 @@ public class UsuarioController {
 		List<Usuario> user = usuarioRepository.buscaUsuarioPorLogin(login.trim().toUpperCase());
 
 		return new ResponseEntity<List<Usuario>>(user, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "buscaUsuarioPorId") // *mapeia a URL
+	@ResponseBody // *Descrição da resposta
+	public ResponseEntity<Usuario> buscaUsuarioPorId(@RequestParam(name = "idUser") long idUser) {
+
+	
+		Usuario user = usuarioRepository.findById(idUser).get();
+			
+
+		return new ResponseEntity<Usuario>(user, HttpStatus.OK);
 	}
 
 }
