@@ -34,7 +34,7 @@ public class PessoaFisicaController {
 	
 
 	/** Lista todas as Pessoas da Tabela no BD **/
-	@GetMapping(value = "listaPessoaFisica")
+	@GetMapping(value = "**/listaPessoaFisica")
 	@ResponseBody
 	public ResponseEntity<List<PessoaFisica>> listaPessoaFisica() {
 
@@ -46,7 +46,7 @@ public class PessoaFisicaController {
 
 	/** Salva todos os dados na Tabela Pessoa do BD **/
 	
-	@PostMapping(value = "salvaPessoaFisica")
+	@PostMapping(value = "**/salvaPessoaFisica")
 	@ResponseBody
 	public ResponseEntity<PessoaFisica> salvarPessoa(@RequestBody PessoaFisica pessoaFisica) {
 
@@ -59,7 +59,7 @@ public class PessoaFisicaController {
 
 	/** Atualiza todos os dados na Tabela Pessoa do BD **/
 
-	@PutMapping(value = "atualizaPessoaFisica")
+	@PutMapping(value = "**/atualizaPessoaFisica")
 	@ResponseBody
 	public ResponseEntity<PessoaFisica> atualizar(@RequestBody PessoaFisica pessoaFisica) {
 
@@ -73,7 +73,7 @@ public class PessoaFisicaController {
 
 	/** Deleta todos os dados de uma pessoa na Tabela Pessoa do BD **/
 	
-	@DeleteMapping(value = "deletePessoaFisica")
+	@DeleteMapping(value = "**/deletePessoaFisica")
 	@ResponseBody // *Descrição da resposta
 	public ResponseEntity<String> delete(@RequestParam long idPess) {
 
@@ -87,7 +87,7 @@ public class PessoaFisicaController {
 	/** Busca todos os dados de uma pessoa na Tabela Pessoa do BD **/
 
 
-	@GetMapping(value = "buscaPessoaFisicaId") // *mapeia a URL
+	@GetMapping(value = "**/buscaPessoaFisicaId") // *mapeia a URL
 	@ResponseBody // *Descrição da resposta
 	public ResponseEntity<PessoaFisica> buscapessid(@RequestParam(name = "idPess") long idPess) {
 
@@ -99,7 +99,7 @@ public class PessoaFisicaController {
 	
 	/** Busca os dados de uma pessoa na Tabela Pessoa do BD **/
 	
-	   @GetMapping(value = "buscaPessoaFisicaPorNome")
+	   @GetMapping(value = "**/buscaPessoaFisicaPorNome")
 	   @ResponseBody 
 	   public ResponseEntity<List<PessoaFisica>>buscaPessoaPorNome(@RequestParam(name = "nome")String  nome ) {
 	   	
@@ -113,7 +113,7 @@ public class PessoaFisicaController {
 		
 		/** Busca os dados de uma pessoa na Tabela Pessoa do BD **/
 		
-		   @GetMapping(value = "buscaPessoaFisicaPorSexo")
+		   @GetMapping(value = "**/buscaPessoaFisicaPorSexo")
 		   @ResponseBody 
 		   public ResponseEntity<List<PessoaFisica>>buscaPessoaPorSexo(@RequestParam(name = "sexo")String  sexo) {
 		   	

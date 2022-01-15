@@ -33,7 +33,7 @@ public class EnderecoController {
 	
 	
 	/** Lista todos os Endereços da Tabela no BD **/
-	@GetMapping(value = "listaEndereco")
+	@GetMapping(value = "**/listaEndereco")
 	@ResponseBody
 	public ResponseEntity<List<Endereco>> listaEndereco() {
 
@@ -45,7 +45,7 @@ public class EnderecoController {
 	
 	/** Salva todos os dados na Tabela Endereco do BD **/
 	
-	@PostMapping(value = "salvaEndereco")
+	@PostMapping(value = "**/salvaEndereco")
 	@ResponseBody
 	public ResponseEntity<Endereco> salvarEndereco(@RequestBody Endereco endereço) {
 
@@ -60,7 +60,7 @@ public class EnderecoController {
 	
 	/** Busca os dados de um Endereço por Cidade na Tabela Pessoa do BD **/
 	
-	   @GetMapping(value = "buscaEnderecoPorCidade")
+	   @GetMapping(value = "**/buscaEnderecoPorCidade")
 	   @ResponseBody 
 	   public ResponseEntity<List<Endereco>>buscabuscaEnderecoPorCidade(@RequestParam(name = "cidade")String  cidade ) {
 	   	
